@@ -120,7 +120,7 @@ function checkStatus(array) {  //判断生命状态，根据规则更改状态
 
 }
 
-function deepCopy(array) {
+function deepCopy(array) {   //深拷贝二维数组
     let n = array.length;
     let tArray = [];
     for (let i = 0; i < n; i++) {
@@ -142,10 +142,10 @@ function ccc(array) {  //测试用，计算true数量
 }
 function main() {
     //初始化绘图
-    temporaryArray = deepCopy(lifeStatusArray);
-    checkStatus(temporaryArray);
-    lifeStatusArray = deepCopy(temporaryArray);
-    traverseArray(lifeStatusArray);
+    temporaryArray = deepCopy(lifeStatusArray);    //深拷贝一个临时数组，
+    checkStatus(temporaryArray);    //判断上一次状态
+    lifeStatusArray = deepCopy(temporaryArray);  //变化后的临时数组赋值给生命数组
+    traverseArray(lifeStatusArray); 
     //console.log(3)
 
 }
@@ -153,4 +153,4 @@ function main() {
 function loop() {
     setInterval(function(){main()},1);
 }
-traverseArray(lifeStatusArray)
+traverseArray(lifeStatusArray) //绘制初始灰色画布
